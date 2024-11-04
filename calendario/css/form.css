@@ -1,0 +1,22 @@
+.single-table {
+    display: -webkit-inline-box;
+}
+.form-agregar{
+    display: none;
+    padding: 10px;
+    background-color: #343a40;
+    color: white;
+    border-radius: 10px;
+    margin-left: 5%;
+}
+label{
+    color: white;
+}
+#colorPicker{
+    background-color: transparent;
+    border: transparent;
+    border-color: transparent;
+}
+.agregar{
+
+}
