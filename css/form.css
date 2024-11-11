@@ -12,11 +12,14 @@
 label{
     color: white;
 }
-#colorPicker{
+#colorPicker, #colortext{
     background-color: transparent;
     border: transparent;
     border-color: transparent;
 }
-.agregar{
-
+#tools{
+    display: inline-grid;
+}
+td ñ{
+    
 }

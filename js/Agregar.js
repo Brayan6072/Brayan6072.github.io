@@ -1,10 +1,14 @@
-const parentDiv = document.getElementsByClassName('form-agregar')[0]; // Selecciona el primer elemento con clase 'table-responsive'
+const parentDiv = document.getElementsByClassName('form-agregar')[0]; 
+const trparent = document.getElementsByClassName('text-white')[0];
+let thparent = document.getElementById('showformadd');
 
 function mostrar(){
  
   parentDiv.style.display = 'inline-grid';
-  
+  trparent.removeChild(thparent);
 }
+
+
 
 document.getElementById('formAgregar').addEventListener('submit', function(event) {
     event.preventDefault(); 
@@ -35,8 +39,9 @@ document.getElementById('formAgregar').addEventListener('submit', function(event
     //const horario = document.querySelector('tbody tr:nth-child(' + hora + ') td:nth-child(' + diaIndex + ')');
 
     
+
     const horario = document.getElementById(""+hora+diaIndex+"");
-        
+
     const contentm = document.createElement('p');
     const contentmd = document.createElement('p');
     
@@ -53,8 +58,49 @@ document.getElementById('formAgregar').addEventListener('submit', function(event
     
     horario.style.backgroundColor = color;
     
+    
+    const clase = {
+        materia: materia,
+        modalidad: modalidad,
+        color: color,
+        colortxt: colortxt
+    };
+
+    localStorage.setItem('clase_' + hora + diaIndex, JSON.stringify(clase));
+    window.location.href = 'index.html';
 });
 
 
 
 
+window.addEventListener('load', function() {
+    const semana = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+
+    
+    for (let hora = 1; hora <= 24; hora++) {
+        for (let diaIndex = 1; diaIndex <= semana.length; diaIndex++) {
+            const claseGuardada = localStorage.getItem('clase_' + hora + diaIndex);
+
+            if (claseGuardada) {
+                
+                const clase = JSON.parse(claseGuardada);
+
+                const horario = document.getElementById("" + hora + diaIndex);
+                const contentm = document.createElement('p');
+                const contentmd = document.createElement('p');
+                
+                contentm.textContent = clase.materia;
+                contentm.style.color = clase.colortxt;
+                contentmd.textContent = clase.modalidad;
+                contentmd.style.color = clase.colortxt;
+
+                horario.innerHTML = ''; 
+
+                horario.appendChild(contentm);
+                horario.appendChild(contentmd);
+
+                horario.style.backgroundColor = clase.color;
+            }
+        }
+    }
+});
