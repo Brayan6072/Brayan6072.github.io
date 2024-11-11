@@ -67,7 +67,7 @@ document.getElementById('formAgregar').addEventListener('submit', function(event
     };
 
     localStorage.setItem('clase_' + hora + diaIndex, JSON.stringify(clase));
-    window.location.href = 'index.html';
+    window.location.href = 'https://brayan6072.github.io/';
 });
 
 
