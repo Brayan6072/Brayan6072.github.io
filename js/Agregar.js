@@ -16,7 +16,6 @@ document.getElementById('formAgregar').addEventListener('submit', function(event
     const semana = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
 
     const materia = document.getElementById('materia').value;
-    const modalidad = document.getElementById('modalidad').value;
     const diaInput = document.getElementById('dia').value;
     const hora = parseInt(document.getElementById('hora').value); 
     const color = document.getElementById('colorPicker').value;
@@ -45,15 +44,11 @@ document.getElementById('formAgregar').addEventListener('submit', function(event
     const horario = document.getElementById(""+hora+diaIndex+"");
 
     const contentm = document.createElement('p');
-    const contentmd = document.createElement('p');
     const contentmaestro = document.createElement('p');
     const contentnrc = document.createElement('p');
     
     contentm.textContent = materia;
     contentm.style.color = colortxt;
-
-    contentmd.textContent = modalidad;
-    contentmd.style.color = colortxt;
 
     contentmaestro.textContent = maestro;
     contentmaestro.style.color = colortxt;
@@ -64,7 +59,6 @@ document.getElementById('formAgregar').addEventListener('submit', function(event
     horario.innerHTML = ''; 
 
     horario.appendChild(contentm);
-    horario.appendChild(contentmd);
     horario.appendChild(contentmaestro);
     horario.appendChild(contentnrc);
     
@@ -73,7 +67,6 @@ document.getElementById('formAgregar').addEventListener('submit', function(event
     
     const clase = {
         materia: materia,
-        modalidad: modalidad,
         maestro: maestro,
         nrc: nrc,
         color: color,
@@ -101,14 +94,11 @@ window.addEventListener('load', function() {
 
                 const horario = document.getElementById("" + hora + diaIndex);
                 const contentm = document.createElement('p');
-                const contentmd = document.createElement('p');
                 const contentmaestro = document.createElement('p');
                 const contentnrc = document.createElement('p');
                 
                 contentm.textContent = clase.materia;
                 contentm.style.color = clase.colortxt;
-                contentmd.textContent = clase.modalidad;
-                contentmd.style.color = clase.colortxt;
                 contentmaestro.textContent = clase.maestro;
                 contentmaestro.style.color = clase.colortxt;
                 contentnrc.textContent = clase.nrc;
@@ -117,7 +107,6 @@ window.addEventListener('load', function() {
                 horario.innerHTML = ''; 
 
                 horario.appendChild(contentm);
-                horario.appendChild(contentmd);
                 horario.appendChild(contentmaestro);
                 horario.appendChild(contentnrc);
 
